@@ -1,6 +1,6 @@
 const Joi = require('joi')
 
-const applicationSchem = Joi.object({
+const applicationSchema = Joi.object({
   email: Joi.string().email().lowercase().required(),
   password: Joi.string().min(5).required()
 });
@@ -8,7 +8,7 @@ const applicationSchem = Joi.object({
 module.exports = function (validator) {
   return async function (req, res, next) {
     try {
-      const validated = await applicationSchem.validateAsync(req.body)
+      const validated = await applicationSchema.validateAsync(req.body)
       req.body = validated
       next()
     } catch (err) {

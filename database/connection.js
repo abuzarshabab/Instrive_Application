@@ -19,7 +19,7 @@ async function connect() {
   return db;
 }
 
-module.exports = { dbInstance }
+module.exports = dbInstance;
 
 // const client = new MongoClient(url);
 
